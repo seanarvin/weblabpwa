@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>E-vacuateMe</title>
+    <a href="search.html">
+    <img class="logo" src="img1.png">
+    </a>
+</head>
+
+<body>
+    <div id="currentPlace">
+        <a href="search.html">Current Location</a>
+    </div>
+    <div id="map"></div>
+    <div id="maxcap">
+        <h1>Irisan Barangay Hall</h1>
+        <h1>Maximum Capacity of Families</h1>
+        <p>No. of Families: 11</p>
+    </div>
+    
+    
+    
+    
+    
+<!--Script-->
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var Baguio = {lat: 16.4203, lng: 120.5569};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15, center: Baguio});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: Baguio, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3ZH8CHdP_RxJcE3OC-jHA3-QBd9VZxkA&callback=initMap">
+    </script>
+    
+    <script>function detectBrowser() {
+  var useragent = navigator.userAgent;
+  var mapdiv = document.getElementById("map");
+
+  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+    mapdiv.style.width = '100%';
+    mapdiv.style.height = '100%';
+  } else {
+    mapdiv.style.width = '600px';
+    mapdiv.style.height = '800px';
+  }
+}
+    </script>
+</body>
+
+</html>
